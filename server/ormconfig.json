@@ -1,0 +1,6 @@
+{
+  "type": "sqlite",
+  "database": "db/alarm.db",
+  "entities": ["dist/**/*.entity{.ts,.js}"],
+  "synchronize": true
+}
