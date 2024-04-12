@@ -1,4 +1,3 @@
-import React from 'react';
 import Clock from './components/Clock';
 import AlarmManager from './components/AlarmManager';
 
