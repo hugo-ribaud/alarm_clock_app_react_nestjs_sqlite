@@ -39,17 +39,15 @@ const AlarmManager = () => {
 
   const handleConfirmDelete = (id: number) => {
     setConfirmDeleteId(id);
-    // Optionally set a timeout to reset the confirmation state
     setTimeout(() => setConfirmDeleteId(null), 5000); // 5 seconds to confirm
   };
 
   const handleDeleteAlarm = async (id: number) => {
-    // If there's a confirmation id, only delete if it matches
     if (confirmDeleteId === id) {
       try {
         await deleteAlarm(id);
         setAlarms(alarms.filter((alarm) => alarm.id !== id));
-        setConfirmDeleteId(null); // Reset confirmation state after deletion
+        setConfirmDeleteId(null);
       } catch (error) {
         console.error("Couldn't delete alarm:", error);
       }
