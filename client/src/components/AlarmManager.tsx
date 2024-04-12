@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AlarmForm from './AlarmForm';
 import AlarmEditForm from './AlarmEditForm';
 import { AlarmManagerProps } from '../types';
@@ -10,10 +10,13 @@ import {
   deleteAlarm,
 } from '../service/api/api';
 
-const AlarmManager = () => {
+const AlarmManager = ({ setAlarmTriggered }: AlarmManagerProps) => {
   const [alarms, setAlarms] = useState<AlarmManagerProps[]>([]);
   const [editingAlarmId, setEditingAlarmId] = useState<number | null>(null);
   const [confirmDeleteId, setConfirmDeleteId] = useState<number | null>(null);
+  const [alarmSounding, setAlarmSounding] = useState<number | null>(null);
+  const [isSoundEnabled, setIsSoundEnabled] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     loadAlarms();
@@ -75,9 +78,56 @@ const AlarmManager = () => {
     }
   };
 
+  useEffect(() => {
+    const checkForAlarms = () => {
+      const now = new Date();
+      const currentTime = `${now.getHours().toString().padStart(2, '0')}:${now
+        .getMinutes()
+        .toString()
+        .padStart(2, '0')}`;
+
+      const matchingAlarm = alarms.find(
+        (alarm) => alarm.time === currentTime && alarm.id !== alarmSounding
+      );
+      if (matchingAlarm && audioRef.current) {
+        console.log(`Alarm with id ${matchingAlarm.id} is sounding!`);
+        setAlarmTriggered(true);
+        setAlarmSounding(matchingAlarm.id);
+        audioRef.current.play();
+      } else if (!matchingAlarm) {
+        setAlarmSounding(null);
+        if (audioRef.current) {
+          audioRef.current.pause();
+          audioRef.current.currentTime = 0;
+        } else {
+          setAlarmTriggered(false);
+        }
+      }
+    };
+
+    const intervalId = setInterval(checkForAlarms, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [alarms, alarmSounding, isSoundEnabled, setAlarmTriggered]);
+
+  const enableSound = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setIsSoundEnabled(true);
+    }
+  };
+
   return (
     <div className='min-h-screen bg-gray-100 py-8'>
+      <audio
+        ref={audioRef}
+        src='/alarm.mp3'
+        preload='auto'
+      ></audio>
       <div className='max-w-2xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <button onClick={enableSound}>Enable Sound</button>
         <div className='mb-8'>
           <h2 className='text-2xl font-bold text-gray-900 mb-6'>Alarms</h2>
           <AlarmForm addAlarm={handleAddAlarm} />

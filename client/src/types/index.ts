@@ -2,6 +2,7 @@ export interface AlarmManagerProps {
   id: number;
   time: string;
   label: string;
+  setAlarmTriggered: (isTriggered: boolean) => void;
 }
 
 export interface AlarmEditFormProps {
@@ -15,5 +16,6 @@ export interface AlarmFormProps {
 }
 
 export interface ClockProps {
-  onAddAlarmClick?: () => void;
+  alarmTriggered: boolean;
+  stopAlarm: () => void;
 }
