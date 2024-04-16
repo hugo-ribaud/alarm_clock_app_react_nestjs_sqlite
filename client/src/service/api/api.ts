@@ -8,7 +8,7 @@ export const fetchAlarms = async () => {
   return response.json();
 };
 
-export const createAlarm = async (alarm) => {
+export const createAlarm = async (alarm: { time: string; label: string; }) => {
   const response = await fetch(`${API_URL}/alarms`, {
     method: 'POST',
     headers: {
@@ -22,7 +22,7 @@ export const createAlarm = async (alarm) => {
   return response.json();
 };
 
-export const updateAlarm = async (id, alarm) => {
+export const updateAlarm = async (id: number, alarm: { time: string; label: string; }) => {
   const response = await fetch(`${API_URL}/alarms/${id}`, {
     method: 'PUT',
     headers: {
