@@ -12,6 +12,11 @@
 
 </div>
 
+<div align="center">
+  ![Clock ScreenShot](https://imgur.com/Uh2fMVf)
+  ![Alarm Manager ScreenShot](https://imgur.com/rMHuSuG)
+</div>
+
 ## Introduction
 
 The Alarm Clock App is a modern, user-friendly application designed to help users manage their time effectively. It allows users to set alarms for different times throughout the day and receive notifications when it's time to take action on scheduled tasks or appointments.
@@ -58,7 +63,7 @@ cd ../client
 npm run dev
 ```
 
-Browser should open or go to (http://localhost:5173/)
+Open http://localhost:5173 to view it in the browser.
 
 # Testing the application
 
