@@ -57,7 +57,7 @@ Create an empty alarm.db file into /server/db/
 
 ```bash
 cd server
-npm run dev
+npm run start
 
 cd ../client
 npm run dev
