@@ -36,7 +36,7 @@ The Alarm Clock App is a modern, user-friendly application designed to help user
 # Clone the repo :
 
 ```bash
-git clone (https://github.com/hugo-ribaud/alarm_clock_app_react_nestjs_sqlite.git)
+git clone https://github.com/hugo-ribaud/alarm_clock_app_react_nestjs_sqlite.git
 cd client
 npm install
 
