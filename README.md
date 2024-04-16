@@ -53,6 +53,14 @@ npm install
 
 Create an empty alarm.db file into /server/db/
 
+# env file
+
+create a .env.local file in the root of the client directory and add :
+
+```bash
+VITE_APP_API_URL=http://localhost:3000
+```
+
 # Run the application
 
 ```bash
