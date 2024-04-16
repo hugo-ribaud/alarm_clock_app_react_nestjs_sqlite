@@ -13,8 +13,8 @@
 </div>
 
 <div align="center">
-  ![Clock ScreenShot](/images/clock-screenshot.png)
-  ![Alarm Manager ScreenShot](/images/alarm-screenshot.png)
+  ![Clock ScreenShot](https://imgur.com/Uh2fMVf)
+  ![Alarm Manager ScreenShot](https://imgur.com/rMHuSuG)
 </div>
 
 ## Introduction
