@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
   <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="react"/>
@@ -104,3 +105,6 @@ Body.json :
 - Extended Functionality: Introduce timers, countdowns, and stopwatch features.
 - Radio Integration: Connect to a web radio API for music alarms.
 - Personalization: Allow users to customize alarm tones and app themes.
+=======
+Tu update
+>>>>>>> origin/main
