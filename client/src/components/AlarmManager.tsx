@@ -126,9 +126,42 @@ const AlarmManager = ({ setAlarmTriggered }: AlarmManagerProps) => {
         src='/alarm.mp3'
         preload='auto'
       ></audio>
+
       <div className='max-w-2xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <button onClick={enableSound}>Enable Sound</button>
-        <div className='mb-8'>
+        <button
+          className='bg-yellow-200 p-2 rounded-lg hover:bg-yellow-500 transition ease-in-out duration-150 focus:outline-none focus:ring focus:ring-yellow-300 mb-4'
+          onClick={enableSound}
+        >
+          {isSoundEnabled ? (
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+              fill='currentColor'
+              className='w-6 h-6'
+            >
+              <path d='M3.53 2.47a.75.75 0 0 0-1.06 1.06l18 18a.75.75 0 1 0 1.06-1.06l-18-18ZM20.57 16.476c-.223.082-.448.161-.674.238L7.319 4.137A6.75 6.75 0 0 1 18.75 9v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206Z' />
+              <path
+                fillRule='evenodd'
+                d='M5.25 9c0-.184.007-.366.022-.546l10.384 10.384a3.751 3.751 0 0 1-7.396-1.119 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z'
+                clipRule='evenodd'
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+              fill='currentColor'
+              className='w-6 h-6'
+            >
+              <path
+                fillRule='evenodd'
+                d='M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z'
+                clipRule='evenodd'
+              />
+            </svg>
+          )}
+        </button>
+        <div className='mb-8 flex flex-col'>
           <h2 className='text-2xl font-bold text-gray-900 mb-6'>Alarms</h2>
           <AlarmForm addAlarm={handleAddAlarm} />
         </div>

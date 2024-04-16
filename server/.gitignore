@@ -3,6 +3,9 @@
 /node_modules
 /build
 
+# DB
+/db/alarm.db
+
 # Logs
 logs
 *.log
